@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -9,6 +10,12 @@ const PORT = process.env.PORT || 5000;
 //Midleware
 app.use(express.json());
 app.use(require("cors")());
+
+//connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, {useNewUrlPraser: true, useUnifiedTopology: true,
+
+}).then(() => console.log("MongoDB Connected"))
+.catch(err => console.log(err));
 
 //Test Route
 app.get("/",(req, res) => {res.send("Tyre Showroom API is Running...");
