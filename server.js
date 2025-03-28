@@ -16,10 +16,10 @@ app.use(require("cors")());
 console.log("MongoDB URI:", process.env.MONGO_URI);
 
 //connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {useNewUrlPraser: true, useUnifiedTopology: true,
+mongoose.connect(process.env.MONGO_URI)
 
-}).then(() => console.log("MongoDB Connected"))
-.catch(err => console.log(err));
+    .then(() => console.log("MongoDB Connected"))
+    .catch(err => console.log(err));
 
 //Test Route
 app.get("/",(req, res) => {res.send("Tyre Showroom API is Running...");
