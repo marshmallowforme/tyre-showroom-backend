@@ -13,6 +13,10 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(require("cors")());
 
+const authRoutes = require("./routes/authRoutes");
+app.use("/auth", authRoutes);
+
+
 const tyreRoutes = require("./routes/tyreRoutes");
 app.use("/tyres", tyreRoutes);
 
