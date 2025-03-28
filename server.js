@@ -13,6 +13,10 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(require("cors")());
 
+const tyreRoutes = require("./routes/tyreRoutes");
+app.use("/tyres", tyreRoutes);
+
+
 console.log("MongoDB URI:", process.env.MONGO_URI);
 
 //connect to MongoDB
